@@ -36,7 +36,7 @@ This template ships with OpenAI `gpt-4o` as the default. However, with the [AI S
 
 ## Running locally
 
-You will need to update the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot.
+You will need to update the environment variables defined in [`.env.example`](.env.example) to run Next.js AI Chatbot.
 
 
 ```bash
