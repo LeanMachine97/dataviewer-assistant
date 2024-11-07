@@ -1,3 +1,5 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 import {
   convertToCoreMessages,
   Message,
@@ -9,7 +11,7 @@ import { z } from 'zod';
 
 import { customModel } from '@/ai';
 import { models } from '@/ai/models';
-import { canvasPrompt, regularPrompt } from '@/ai/prompts';
+import { canvasPrompt, dataViewerAssistantPrompt, regularPrompt } from '@/ai/prompts';
 import { auth } from '@/app/(auth)/auth';
 import {
   deleteChatById,
@@ -89,7 +91,7 @@ export async function POST(request: Request) {
 
   const result = await streamText({
     model: customModel(model.apiIdentifier),
-    system: modelId === 'gpt-4o-canvas' ? canvasPrompt : regularPrompt,
+    system: modelId === 'gpt-4o-canvas' ? canvasPrompt : dataViewerAssistantPrompt,
     messages: coreMessages,
     maxSteps: 5,
     experimental_activeTools:
